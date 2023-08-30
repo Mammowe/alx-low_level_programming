@@ -1,18 +1,25 @@
 #include "lists.h"
-
+#include <stdio.h>
+#include <stdlib.h>
 /**
- * free_listint - frees a linked list
- * @head: listint_t list to be freed
+ * free_listint- entry
+ * @head: input
+ * Return: l
  */
 void free_listint(listint_t *head)
 {
-	listint_t *temp;
+	listint_t *h, *i;
 
-	while (head)
+	h = head;
+	if (head != NULL)
 	{
-		temp = head->next;
-		free(head);
-		head = temp;
+		while (h != NULL)
+		{
+			i = h;
+			h = h->next;
+			free(i);
+		}
+		free(h);
 	}
 }
 
